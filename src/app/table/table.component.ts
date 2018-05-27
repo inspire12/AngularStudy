@@ -44,6 +44,7 @@ export class TableComponent implements OnInit {
       });
   }
   ngOnInit() {
+    this.ngCallJson2('book');
   }
 
 }

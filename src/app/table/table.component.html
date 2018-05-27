@@ -1,11 +1,11 @@
 <mat-form-field>
-  <mat-select  [(value)]="selected" (ngModelChange)="ngCallJson2()">
+  <mat-select  [(value)]="selected" (selectionChange)="ngCallJson2(selected)">
     <mat-option *ngFor="let option of listOption" value="{{option}}"> {{option}} </mat-option>
   </mat-select>
 
 </mat-form-field>
 <ng-container *ngIf="selected != null">
-<p> selected : {{(selected)}} </p>
+<p > selected : {{(selected)}} </p>
 </ng-container>
 
 <div>
@@ -14,7 +14,7 @@
      <tr> <td>ISBN</td> <td>Title</td> <td>Author</td> <td>Price</td></tr>
      </thead>
      <tbody>
-      <tr *ngFor="let book of books" (change)="ngCallJson()">
+      <tr *ngFor="let book of books" >
         <td> {{book.bisbn}}</td>
         <td> {{book.btitle}}</td>
         <td> {{book.bauthor}}</td>
