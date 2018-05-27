@@ -30,7 +30,9 @@ export class TableComponent implements OnInit {
     }
     this.http.get<IBook[]>('assets/data/' + bookName + '.json')
       .subscribe(res => {
-        this.books = res;
+        this.books = res.sort(function (a, b){
+          return (a.bdate  < b.bdate) ? -1 : (a.bdate > b.bdate) ? 1 : 0;
+        });
         this.dataSource = new MatTableDataSource<IBook>(this.books);
       });
   }
