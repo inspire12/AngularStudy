@@ -3,6 +3,14 @@
 menubar / mat-select ->(selectedChange) read json data file by httpModule <br>
 -> change table -> click row element -> save paragraph 
 
+# Study 
+ (Angular module, component) <br>
+ (mat-selected) <br>
+ (httpModule) <br>
+ (change) -> (selectedChange)
+# Reference 
+https://moon9342.github.io/angular-lecture-table-event
+
 # Start
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
