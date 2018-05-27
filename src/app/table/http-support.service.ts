@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { IBook } from '../ibook';
 
+/**
+ * 만약 mat table을 쓸 때 내부 내용 수정을 위해 사용하려함
+ */
 @Injectable()
 export class HttpSupportService {
 

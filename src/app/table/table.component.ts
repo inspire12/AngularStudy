@@ -15,26 +15,20 @@ export class TableComponent implements OnInit {
   dataSource;
   books: IBook[];
   listOption = ['book', 'book2', 'book3'];
+  isClick = [];
   @Input() bookCategory: string;
 
   constructor(private http: HttpClient) {
-    this.ngCallJson('book');
+    this.ngCallJson2('book');
   }
   ngTest(): void {
     console.log('ngtest');
   }
 
-  ngCallJson(bookName: string) {
-    if (bookName === undefined) {
-      bookName = 'book';
-    }
-    this.http.get<IBook[]>('assets/data/' + bookName + '.json')
-      .subscribe(res => {
-        this.books = res.sort(function (a, b){
-          return (a.bdate  < b.bdate) ? -1 : (a.bdate > b.bdate) ? 1 : 0;
-        });
-        this.dataSource = new MatTableDataSource<IBook>(this.books);
-      });
+
+  ngShowParagraph (index: number) {
+    this.isClick[index] = (this.isClick[index] + 1) % 2;
+    console.log(this.isClick);
   }
 
   ngCallJson2(bookName: string) {
@@ -42,6 +36,10 @@ export class TableComponent implements OnInit {
     this.http.get<IBook[]>('assets/data/' + bookName + '.json')
       .subscribe(res => {
         this.books = res;
+        this.isClick = [];
+        for (let i = 0; i < res.length; i++) {
+            this.isClick.push(0);
+        }
         this.dataSource = new MatTableDataSource<IBook>(this.books);
       });
   }

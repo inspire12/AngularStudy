@@ -8,16 +8,18 @@
 <p > selected : {{(selected)}} </p>
 </div>
 
-<div>
+<div >
    <table>
      <thead>
-     <tr> <td>ISBN</td> <td>Title</td> <td>Author</td> <td>Price</td></tr>
+     <tr> <td>index</td><td>ISBN</td> <td>Title</td> <td>Date</td> <td>Author</td> <td>Price</td></tr>
      </thead>
      <tbody>
-      <tr *ngFor="let book of books" >
+      <tr *ngFor="let book of books; let i = index"  >
+        <td> {{i+1}} </td>
         <td> {{book.bisbn}}</td>
-        <!--<td> <ng-container (click)=""> {{book.btitle[0]}} </ng-container></td>-->
-        <td> </td>
+        <td> <div (click) = ngShowParagraph(i)>{{book.btitle[0]}} </div>  <ng-container *ngIf="isClick[i] == 1"><br>{{book.btitle}}  </ng-container></td>
+
+        <td> {{book.bdate}}</td>
         <td> {{book.bauthor}}</td>
         <td> {{book.bprice}}</td>
       </tr>

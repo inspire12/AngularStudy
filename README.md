@@ -8,8 +8,11 @@ menubar / mat-select ->(selectedChange) read json data file by httpModule <br>
  (mat-selected) <br>
  (httpModule) <br>
  (change) -> (selectedChange)
+
 # Reference 
-https://moon9342.github.io/angular-lecture-table-event
+<a href="https://moon9342.github.io/angular-lecture-table-event"> https://moon9342.github.io/angular-lecture-table-event</a>
+<a href="https://angular.io/guide/ajs-quick-reference"> https://angular.io/guide/ajs-quick-reference</a>>
+<a href="https://developer.mozilla.org/ko/docs/A_re-introduction_to_JavaScript">https://developer.mozilla.org/ko/docs/A_re-introduction_to_JavaScript</a>
 
 # Start
 
