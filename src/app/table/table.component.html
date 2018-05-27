@@ -1,5 +1,6 @@
+<!--form field-->
 <mat-form-field>
-  <mat-select  [(value)]="selected" (selectionChange)="ngCallJson2(selected)">
+  <mat-select  [(value)]="selected" (selectionChange)="ngCallJson(selected)">
     <mat-option *ngFor="let option of listOption" value="{{option}}"> {{option}} </mat-option>
   </mat-select>
 
@@ -7,7 +8,7 @@
 <div [hidden]="!selected">
 <p > selected : {{(selected)}} </p>
 </div>
-
+<!--table-->
 <div >
    <table>
      <thead>
@@ -17,8 +18,13 @@
       <tr *ngFor="let book of books; let i = index"  >
         <td> {{i+1}} </td>
         <td> {{book.bisbn}}</td>
-        <td> <div (click) = ngShowParagraph(i)>{{book.btitle[0]}} </div>  <ng-container *ngIf="isClick[i] == 1"><br>{{book.btitle}}  </ng-container></td>
-
+        <td> <div (click) = ngShowParagraph(i)>{{book.btitle[0]}} </div>
+          <ng-container *ngIf="isClick[i] == 1">
+            <ng-container *ngFor="let paragraph of book.btitle; let j= index">
+              <span (click)="ngClickParagraph(paragraph, i, j)">{{paragraph}}</span>
+            </ng-container>
+          </ng-container>
+        </td>
         <td> {{book.bdate}}</td>
         <td> {{book.bauthor}}</td>
         <td> {{book.bprice}}</td>
@@ -26,9 +32,10 @@
      </tbody>
    </table>
 </div>
-
-<div>
-
+<!--canvas-->
+<div class="canvas" id="canvas" >
+  <div id="appendCanvas"></div>
+  <button (click)="ngClickCanvasButton()"> Button </button>
 </div>
 <!--<div>-->
   <!--<mat-table #table [dataSource]="dataSource">-->
