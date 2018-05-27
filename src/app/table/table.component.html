@@ -4,9 +4,9 @@
   </mat-select>
 
 </mat-form-field>
-<ng-container *ngIf="selected != null">
+<div [hidden]="!selected">
 <p > selected : {{(selected)}} </p>
-</ng-container>
+</div>
 
 <div>
    <table>
@@ -16,12 +16,17 @@
      <tbody>
       <tr *ngFor="let book of books" >
         <td> {{book.bisbn}}</td>
-        <td> {{book.btitle}}</td>
+        <!--<td> <ng-container (click)=""> {{book.btitle[0]}} </ng-container></td>-->
+        <td> </td>
         <td> {{book.bauthor}}</td>
         <td> {{book.bprice}}</td>
       </tr>
      </tbody>
    </table>
+</div>
+
+<div>
+
 </div>
 <!--<div>-->
   <!--<mat-table #table [dataSource]="dataSource">-->
