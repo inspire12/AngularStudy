@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SelectedComponent } from './selected.component';
 import {MatFormFieldModule, MatOptionModule, MatSelectModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TableModule} from '../table/table.module';
 
 @NgModule({
   imports: [
@@ -12,7 +12,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     MatOptionModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-
+    TableModule
   ],
   declarations: [SelectedComponent],
   exports: [SelectedComponent]

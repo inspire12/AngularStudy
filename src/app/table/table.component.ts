@@ -1,18 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import {HttpClient} from '@angular/common/http';
+import {IBook} from '../ibook';
 
-// assets/data/book.json
-interface IBook {
-  bauthor: string;
-  bdate: string;
-  btranslator: string;
-  bpublisher: string;
-  btitle: string;
-  bprice: number;
-  bisbn: string;
-  bimgurl: string;
-}
 
 @Component({
   selector: 'app-table',
@@ -21,17 +11,38 @@ interface IBook {
 })
 export class TableComponent implements OnInit {
 
-    displayedColumns = ['bisbn', 'btitle', 'bauthor', 'bprice'];
+  displayedColumns = ['bisbn', 'btitle', 'bauthor', 'bprice'];
   dataSource;
   books: IBook[];
-    constructor(private http: HttpClient) {
-    this.http.get<IBook[]>('assets/data/book.json')
+  listOption = ['book', 'book2', 'book3'];
+  @Input() bookCategory: string;
+
+  constructor(private http: HttpClient) {
+    this.ngCallJson('book');
+  }
+  ngTest(): void {
+    console.log('ngtest');
+  }
+
+  ngCallJson(bookName: string) {
+    if (bookName === undefined) {
+      bookName = 'book';
+    }
+    this.http.get<IBook[]>('assets/data/' + bookName + '.json')
       .subscribe(res => {
         this.books = res;
         this.dataSource = new MatTableDataSource<IBook>(this.books);
       });
   }
 
+  ngCallJson2(bookName: string) {
+    console.log('json2');
+    this.http.get<IBook[]>('assets/data/' + bookName + '.json')
+      .subscribe(res => {
+        this.books = res;
+        this.dataSource = new MatTableDataSource<IBook>(this.books);
+      });
+  }
   ngOnInit() {
   }
 
