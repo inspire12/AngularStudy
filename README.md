@@ -1,3 +1,8 @@
+# What I wanna make?
+
+menubar / mat-select ->(selectedChange) read json data file by httpModule <br>
+-> change table -> click row element -> save paragraph 
+
 # Start
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
